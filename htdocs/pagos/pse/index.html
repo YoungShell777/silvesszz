@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Pago con QR</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    /* NAV BAR */
+    .navbar {
+      background-color: #0056b3;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar img {
+      height: 40px;
+    }
+
+    .main-content {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .main-content p {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .qr-img {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR CON LOGO -->
+  <div class="navbar">
+    <img src="../logo.png" alt="Logo">
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main-content">
+    <p>Entra a tu app de banco y escanea el QR para efectuar el pago:</p>
+    <img class="qr-img" src="qr.jpg" alt="Código QR para pago">
+  </div>
+
+</body>
+</html>

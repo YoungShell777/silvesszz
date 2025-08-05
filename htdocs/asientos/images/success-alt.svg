@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+	 width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" fill="white" fill-rule="evenodd">
+
+<path id="check-mark-4-icon" d="M 471.8,256 C 471.8,136.7185 375.2646,40.2 256,40.2 136.7185,40.2 40.2,136.7367 40.2,256 c 0,119.2815 96.5354,215.8 215.8,215.8 119.2815,0 215.8,-96.5367 215.8,-215.8 z M 362.8912,141.1281 211.9404,292.0789 146.5556,226.6759 98.0708,275.1698 211.9417,389.0719 411.3981,189.6025 362.8912,141.1281 Z" fill="#339d33"/>
+
+</svg>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 11.34 11.34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #bd1f38;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        fill: #2c3077;
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-2" x="0" y="0" width="11.34" height="11.34"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-2" x="-4.35" width="20.03" height="11.34"/>
+    </clipPath>
+  </defs>
+  <g class="cls-6">
+    <g id="UNITED_KINGDOM" data-name="UNITED KINGDOM">
+      <g class="cls-5">
+        <rect class="cls-3" x="-4.35" width="20.03" height="11.34"/>
+        <polygon class="cls-1" points="9.07 4.1 15.68 .5 15.68 0 15.23 0 7.68 4.1 9.07 4.1"/>
+        <polygon class="cls-1" points="8.75 7.47 15.68 11.23 15.68 10.48 10.14 7.47 8.75 7.47"/>
+        <polygon class="cls-1" points="-4.35 .86 1.58 4.1 2.97 4.1 -4.35 .11 -4.35 .86"/>
+        <polygon class="cls-1" points="2.65 7.47 -4.35 11.27 -4.35 11.34 -3.08 11.34 4.04 7.47 2.65 7.47"/>
+        <polygon class="cls-4" points="14.31 0 7.3 0 7.3 3.81 14.31 0"/>
+        <polygon class="cls-4" points="4.2 0 -2.78 0 4.2 3.81 4.2 0"/>
+        <polygon class="cls-4" points="15.68 4.1 15.68 1.5 10.93 4.1 15.68 4.1"/>
+        <polygon class="cls-4" points="15.68 10.04 15.68 7.47 10.93 7.47 15.68 10.04"/>
+        <polygon class="cls-4" points="-2.38 11.34 4.2 11.34 4.2 7.76 -2.38 11.34"/>
+        <polygon class="cls-4" points="7.3 11.34 13.91 11.34 7.3 7.76 7.3 11.34"/>
+        <polygon class="cls-4" points="-4.35 7.47 -4.35 10.16 .58 7.47 -4.35 7.47"/>
+        <polygon class="cls-4" points="-4.35 4.1 .58 4.1 -4.35 1.41 -4.35 4.1"/>
+        <polygon class="cls-1" points="4.82 0 4.82 4.77 -4.35 4.77 -4.35 6.79 4.82 6.79 4.82 11.34 6.68 11.34 6.68 6.79 15.68 6.79 15.68 4.77 6.68 4.77 6.68 0 4.82 0"/>
+      </g>
+    </g>
+  </g>
+</svg>

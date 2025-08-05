@@ -1,0 +1,2322 @@
+/*-SERVICE-1985-*/
+/*Adjust space for large number of prices*/
+div.tariff {
+	width: 400px !important;
+}
+
+span.total {
+	font-size: 1.3rem !important;
+}
+
+@media screen and (max-width: 990px) {
+	div.tariff {
+		text-align: right !important;
+	}
+
+}
+
+@media screen and (max-width: 1250px) {
+	span.total {
+	font-size: 2rem !important;
+	}
+}
+
+/*Hide decimal numbers in all prices*/
+.zeroCentMantissa {
+	display: none !important;
+}
+
+/*End of SERVICE-1985*/
+
+
+/* 05.03.2019
+Hide Duplicated symbols of credit cards*/
+
+.visa{
+  display:none !important;  
+}
+.amex{
+  display:none !important;  
+}
+.mastercard{
+  display:none !important;  
+}
+.diners{
+  display:none !important;  
+}
+
+/* End 05.03.2019 */
+
+/* 24.05.2019_SERVICE-2493: Change font size*/
+#beneficiary_form .label.field_label{    
+font-size: 100%;
+}
+/*END SERVICE-2493*/
+
+
+/* add style for each promocode, there are 3 blocks to add
+
+(1)it consist in including the paymentMethod image url for the payment itself
+
+------------- START
+.main_content_payment .other_payment_method_${PROMOCODE} input {
+	background: transparent center url("/custom/images/creditcard/${PROMOCODE}.png") no-repeat;
+	background-size: contain;
+}
+------------- END
+
+(2) and for other places where to load the cards you have to add the following rule and doing some computation on the card size: 
+the value ${background-height} = 20px * ${imageHeight} / ${imageWidth}
+
+------------- START
+#main_content_edit_personal_details .payment_method_${PROMOCODE} .payment_method_label,
+#edit_payment_method_popup .payment_method_${PROMOCODE} .payment_method_label,
+#remove_payment_method_popup .payment_method_${PROMOCODE} .payment_method_label {
+  background-image: url("/custom/images/creditcard/${PROMOCODE}.png");
+  background-size: 20px ${background-height}px;
+  background-position: left center;
+}
+------------ END
+
+(3) and to support registered cards, here add the following rules per payment method, with the same rule as above, but with 30 instead of 20
+
+the value ${background-height} = 30px * ${imageHeight} / ${imageWidth}
+the value ${background-position-height} = 115 - ${background-height};
+
+------------ START
+#payment_saved_cards .card.card_${PROMOCODE} {
+  background-image: url("/custom/images/creditcard/${PROMOCODE}.png");
+  background-size: 30px ${background-height}pxpx;
+  background-position: 165px ${background-position-height}px;
+}
+------------ END
+
+*/
+
+/* CAS-06840-X1S8Q6 shift from transparent to white background */
+.main_content_payment .other_payment_method_AMEX__1 input {
+  background: white center url("../images/AMEX__1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX__3 input {
+  background: white center url("../images/AMEX__3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX__6 input {
+  background: white center url("../images/AMEX__6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX__12 input {
+  background: white center url("../images/AMEX__12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX__X input {
+  background: white center url("../images/AMEX__X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_AMEX_1 input {
+  background: white center url("../images/AMEX_AMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_AMEX_3 input {
+  background: white center url("../images/AMEX_AMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_AMEX_6 input {
+  background: white center url("../images/AMEX_AMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_AMEXAVAL input {
+  background: white center url("../images/AMEX_AMEXAVAL.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_AMEXAVAL_X input {
+  background: white center url("../images/AMEX_AMEXAVAL_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_BANCOLOMBIAAMEX_X input {
+  background: white center url("../images/AMEX_BANCOLOMBIAAMEX_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_CIUDADAMEX_1 input {
+  background: white center url("../images/AMEX_CIUDADAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_CIUDADAMEX_3 input {
+  background: white center url("../images/AMEX_CIUDADAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_CIUDADAMEX_6 input {
+  background: white center url("../images/AMEX_CIUDADAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_CIUDADAMEX_12 input {
+  background: white center url("../images/AMEX_CIUDADAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_COLPATAMEX_X input {
+  background: white center url("../images/AMEX_COLPATAMEX_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_COMAFIAMEX_1 input {
+  background: white center url("../images/AMEX_COMAFIAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_COMAFIAMEX_3 input {
+  background: white center url("../images/AMEX_COMAFIAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_COMAFIAMEX_6 input {
+  background: white center url("../images/AMEX_COMAFIAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_COMAFIAMEX_12 input {
+  background: white center url("../images/AMEX_COMAFIAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_GALICIAAMEX_1 input {
+  background: white center url("../images/AMEX_GALICIAAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_GALICIAAMEX_3 input {
+  background: white center url("../images/AMEX_GALICIAAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_GALICIAAMEX_6 input {
+  background: white center url("../images/AMEX_GALICIAAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_GALICIAAMEX_12 input {
+  background: white center url("../images/AMEX_GALICIAAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_MACROAMEX_1 input {
+  background: white center url("../images/AMEX_MACROAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_MACROAMEX_3 input {
+  background: white center url("../images/AMEX_MACROAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_MACROAMEX_6 input {
+  background: white center url("../images/AMEX_MACROAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_MACROAMEX_12 input {
+  background: white center url("../images/AMEX_MACROAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_PROMOAMEX_1 input {
+  background: white center url("../images/AMEX_PROMOAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_PROMOAMEX_3 input {
+  background: white center url("../images/AMEX_PROMOAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_PROMOAMEX_6 input {
+  background: white center url("../images/AMEX_PROMOAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_PROMOAMEX_12 input {
+  background: white center url("../images/AMEX_PROMOAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_PROMOAMEX_X input {
+  background: white center url("../images/AMEX_PROMOAMEX_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_SANTANDERSELAMEX_1 input {
+  background: white center url("../images/AMEX_SANTANDERSELAMEX_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_SANTANDERSELAMEX_3 input {
+  background: white center url("../images/AMEX_SANTANDERSELAMEX_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_SANTANDERSELECTAMEX_6 input {
+  background: white center url("../images/AMEX_SANTANDERSELECTAMEX_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_AMEX_SANTANDERSELECTAMEX_12 input {
+  background: white center url("../images/AMEX_SANTANDERSELECTAMEX_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL__1 input {
+  background: white center url("../images/CABAL__1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL__3 input {
+  background: white center url("../images/CABAL__3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL__6 input {
+  background: white center url("../images/CABAL__6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL__12 input {
+  background: white center url("../images/CABAL__12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL_CIUDADCAB_1 input {
+  background: white center url("../images/CABAL_CIUDADCAB_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL_CIUDADCAB_3 input {
+  background: white center url("../images/CABAL_CIUDADCAB_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL_CIUDADCAB_6 input {
+  background: white center url("../images/CABAL_CIUDADCAB_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_CABAL_CIUDADCAB_12 input {
+  background: white center url("../images/CABAL_CIUDADCAB_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS__1 input {
+  background: white center url("../images/DINERS__1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS__3 input {
+  background: white center url("../images/DINERS__3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS__6 input {
+  background: white center url("../images/DINERS__6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS__12 input {
+  background: white center url("../images/DINERS__12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS__X input {
+  background: white center url("../images/DINERS__X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_COMAFIDINERS_1 input {
+  background: white center url("../images/DINERS_COMAFIDINERS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_COMAFIDINERS_3 input {
+  background: white center url("../images/DINERS_COMAFIDINERS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_COMAFIDINERS_6 input {
+  background: white center url("../images/DINERS_COMAFIDINERS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_COMAFIDINERS_12 input {
+  background: white center url("../images/DINERS_COMAFIDINERS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_DAVIVDINERS_X input {
+  background: white center url("../images/DINERS_DAVIVDINERS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_PROMODINERS_1 input {
+  background: white center url("../images/DINERS_PROMODINERS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_PROMODINERS_3 input {
+  background: white center url("../images/DINERS_PROMODINERS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_PROMODINERS_6 input {
+  background: white center url("../images/DINERS_PROMODINERS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_PROMODINERS_12 input {
+  background: white center url("../images/DINERS_PROMODINERS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_DINERS_PROMODINERS_X input {
+  background: white center url("../images/DINERS_PROMODINERS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD__1 input {
+  background: white center url("../images/MASTERCARD__1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD__3 input {
+  background: white center url("../images/MASTERCARD__3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD__6 input {
+  background: white center url("../images/MASTERCARD__6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD__12 input {
+  background: white center url("../images/MASTERCARD__12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD__X input {
+  background: white center url("../images/MASTERCARD__X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BANCOLOMBIAMAS_X input {
+  background: white center url("../images/MASTERCARD_BANCOLOMBIAMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBOGOTAMAS_X input {
+  background: white center url("../images/MASTERCARD_BBOGOTAMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBVAMAS_X input {
+  background: white center url("../images/MASTERCARD_BBVAMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBVAMASTER_1 input {
+  background: white center url("../images/MASTERCARD_BBVAMASTER_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBVAMASTER_3 input {
+  background: white center url("../images/MASTERCARD_BBVAMASTER_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBVAMASTER_6 input {
+  background: white center url("../images/MASTERCARD_BBVAMASTER_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_BBVAMASTER_12 input {
+  background: white center url("../images/MASTERCARD_BBVAMASTER_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_CIUDADMAS_1 input {
+  background: white center url("../images/MASTERCARD_CIUDADMAS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_CIUDADMAS_3 input {
+  background: white center url("../images/MASTERCARD_CIUDADMAS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_CIUDADMAS_6 input {
+  background: white center url("../images/MASTERCARD_CIUDADMAS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_CIUDADMAS_12 input {
+  background: white center url("../images/MASTERCARD_CIUDADMAS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_COLPATMAS_X input {
+  background: white center url("../images/MASTERCARD_COLPATMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_COMAFIMASTER_1 input {
+  background: white center url("../images/MASTERCARD_COMAFIMASTER_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_COMAFIMASTER_3 input {
+  background: white center url("../images/MASTERCARD_COMAFIMASTER_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_COMAFIMASTER_6 input {
+  background: white center url("../images/MASTERCARD_COMAFIMASTER_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_COMAFIMASTER_12 input {
+  background: white center url("../images/MASTERCARD_COMAFIMASTER_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_DAVIVMAS_X input {
+  background: white center url("../images/MASTERCARD_DAVIVMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_FALAMAS_X input {
+  background: white center url("../images/MASTERCARD_FALAMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_GALICIAMAS_1 input {
+  background: white center url("../images/MASTERCARD_GALICIAMAS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_GALICIAMAS_3 input {
+  background: white center url("../images/MASTERCARD_GALICIAMAS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_GALICIAMAS_6 input {
+  background: white center url("../images/MASTERCARD_GALICIAMAS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_GALICIAMAS_12 input {
+  background: white center url("../images/MASTERCARD_GALICIAMAS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_ITAUMAS_X input {
+  background: white center url("../images/MASTERCARD_ITAUMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MACROMASTER_1 input {
+  background: white center url("../images/MASTERCARD_MACROMASTER_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MACROMASTER_3 input {
+  background: white center url("../images/MASTERCARD_MACROMASTER_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MACROMASTER_6 input {
+  background: white center url("../images/MASTERCARD_MACROMASTER_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MACROMASTER_12 input {
+  background: white center url("../images/MASTERCARD_MACROMASTER_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MASTERAVAL input {
+  background: white center url("../images/MASTERCARD_MASTERAVAL.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_MASTERAVAL_X input {
+  background: white center url("../images/MASTERCARD_MASTERAVAL_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_OCCIDENTEMAS_X input {
+  background: white center url("../images/MASTERCARD_OCCIDENTEMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_OMEVAMAS_X input {
+  background: white center url("../images/MASTERCARD_OMEVAMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_POPULARMAS_X input {
+  background: white center url("../images/MASTERCARD_POPULARMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_PROMOMASTER_1 input {
+  background: white center url("../images/MASTERCARD_PROMOMASTER_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_PROMOMASTER_3 input {
+  background: white center url("../images/MASTERCARD_PROMOMASTER_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_PROMOMASTER_6 input {
+  background: white center url("../images/MASTERCARD_PROMOMASTER_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_PROMOMASTER_12 input {
+  background: white center url("../images/MASTERCARD_PROMOMASTER_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_PROMOMASTER_X input {
+  background: white center url("../images/MASTERCARD_PROMOMASTER_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_SANTANDERMAS_1 input {
+  background: white center url("../images/MASTERCARD_SANTANDERMAS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_SANTANDERMAS_3 input {
+  background: white center url("../images/MASTERCARD_SANTANDERMAS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_SANTANDERMAS_6 input {
+  background: white center url("../images/MASTERCARD_SANTANDERMAS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_SANTANDERMAS_12 input {
+  background: white center url("../images/MASTERCARD_SANTANDERMAS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_SOCIALMAS_X input {
+  background: white center url("../images/MASTERCARD_SOCIALMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_MASTERCARD_VILLASMAS_X input {
+  background: white center url("../images/MASTERCARD_VILLASMAS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA__1 input {
+  background: white center url("../images/VISA__1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA__3 input {
+  background: white center url("../images/VISA__3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA__6 input {
+  background: white center url("../images/VISA__6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA__12 input {
+  background: white center url("../images/VISA__12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA__X input {
+  background: white center url("../images/VISA__X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BANCOLOMBIAVIS_X input {
+  background: white center url("../images/VISA_BANCOLOMBIAVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBOGOTAVIS_X input {
+  background: white center url("../images/VISA_BBOGOTAVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBVAVIS_X input {
+  background: white center url("../images/VISA_BBVAVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBVAVISA_1 input {
+  background: white center url("../images/VISA_BBVAVISA_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBVAVISA_3 input {
+  background: white center url("../images/VISA_BBVAVISA_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBVAVISA_6 input {
+  background: white center url("../images/VISA_BBVAVISA_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_BBVAVISA_12 input {
+  background: white center url("../images/VISA_BBVAVISA_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_CIUDADVIS_1 input {
+  background: white center url("../images/VISA_CIUDADVIS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_CIUDADVIS_3 input {
+  background: white center url("../images/VISA_CIUDADVIS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_CIUDADVIS_6 input {
+  background: white center url("../images/VISA_CIUDADVIS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_CIUDADVIS_12 input {
+  background: white center url("../images/VISA_CIUDADVIS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_COLPATVIS_X input {
+  background: white center url("../images/VISA_COLPATVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_COMAFIVISA_1 input {
+  background: white center url("../images/VISA_COMAFIVISA_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_COMAFIVISA_3 input {
+  background: white center url("../images/VISA_COMAFIVISA_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_COMAFIVISA_6 input {
+  background: white center url("../images/VISA_COMAFIVISA_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_COMAFIVISA_12 input {
+  background: white center url("../images/VISA_COMAFIVISA_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_DAVIVVIS_X input {
+  background: white center url("../images/VISA_DAVIVVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_FALAVIS_X input {
+  background: white center url("../images/VISA_FALAVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_FIFA input {
+  background: white center url("../images/VISA_FIFA.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_GALICIAVIS_1 input {
+  background: white center url("../images/VISA_GALICIAVIS_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_GALICIAVIS_3 input {
+  background: white center url("../images/VISA_GALICIAVIS_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_GALICIAVIS_6 input {
+  background: white center url("../images/VISA_GALICIAVIS_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_GALICIAVIS_12 input {
+  background: white center url("../images/VISA_GALICIAVIS_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_ITAUVIS_X input {
+  background: white center url("../images/VISA_ITAUVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_MACROVISA_1 input {
+  background: white center url("../images/VISA_MACROVISA_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_MACROVISA_3 input {
+  background: white center url("../images/VISA_MACROVISA_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_MACROVISA_6 input {
+  background: white center url("../images/VISA_MACROVISA_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_MACROVISA_12 input {
+  background: white center url("../images/VISA_MACROVISA_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_OCCIDENTEVIS_X input {
+  background: white center url("../images/VISA_OCCIDENTEVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_OMEVAVIS_X input {
+  background: white center url("../images/VISA_OMEVAVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_POPULARVIS_X input {
+  background: white center url("../images/VISA_POPULARVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_PROMOVISA_1 input {
+  background: white center url("../images/VISA_PROMOVISA_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_PROMOVISA_3 input {
+  background: white center url("../images/VISA_PROMOVISA_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_PROMOVISA_6 input {
+  background: white center url("../images/VISA_PROMOVISA_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_PROMOVISA_12 input {
+  background: white center url("../images/VISA_PROMOVISA_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_PROMOVISA_X input {
+  background: white center url("../images/VISA_PROMOVISA_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_SANTANDERSELVISA_1 input {
+  background: white center url("../images/VISA_SANTANDERSELVISA_1.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_SANTANDERSELVISA_3 input {
+  background: white center url("../images/VISA_SANTANDERSELVISA_3.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_SANTANDERSELECTVISA_6 input {
+  background: white center url("../images/VISA_SANTANDERSELECTVISA_6.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_SANTANDERSELECTVISA_12 input {
+  background: white center url("../images/VISA_SANTANDERSELECTVISA_12.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_SOCIALVIS_X input {
+  background: white center url("../images/VISA_SOCIALVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_VILLASVIS_X input {
+  background: white center url("../images/VISA_VILLASVIS_X.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_VISAAVAL input {
+  background: white center url("../images/VISA_VISAAVAL.png") no-repeat;
+	background-size: contain;
+}
+.main_content_payment .other_payment_method_VISA_VISAAVAL_X input {
+  background: white center url("../images/VISA_VISAAVAL_X.png") no-repeat;
+	background-size: contain;
+}
+/* CAS-06840-X1S8Q6 Missing for safetypay */
+.main_content_payment .other_payment_method_SAFETYPAY input {
+  background: white center url("../images/SAFETYPAY.png") no-repeat;
+	background-size: contain;
+}
+#main_content_edit_personal_details .payment_method_AMEX .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX .payment_method_label {
+  background-image: url("../images/AMEX.png");
+  background-size: 20px 4367.00003px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEXAVAL .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEXAVAL .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEXAVAL .payment_method_label {
+  background-image: url("../images/AMEXAVAL.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_AMEXAVAL .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_AMEXAVAL .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_AMEXAVAL .payment_method_label {
+  background-image: url("../images/AMEX_AMEXAVAL.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_AMEXAVAL_X .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_AMEXAVAL_X .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_AMEXAVAL_X .payment_method_label {
+  background-image: url("../images/AMEX_AMEXAVAL_X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_AMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_AMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_AMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_AMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_AMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_AMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_AMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_AMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_AMEX_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_AMEX_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_AMEX_6 .payment_method_label {
+  background-image: url("../images/AMEX_AMEX_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_BANCOLOMBIAAMEX_X .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_BANCOLOMBIAAMEX_X .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_BANCOLOMBIAAMEX_X .payment_method_label {
+  background-image: url("../images/AMEX_BANCOLOMBIAAMEX_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COLPATAMEX_X .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COLPATAMEX_X .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COLPATAMEX_X .payment_method_label {
+  background-image: url("../images/AMEX_COLPATAMEX_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COLPATRIA .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COLPATRIA .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COLPATRIA .payment_method_label {
+  background-image: url("../images/AMEX_COLPATRIA.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COMAFIAMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COMAFIAMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COMAFIAMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_COMAFIAMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COMAFIAMEX_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COMAFIAMEX_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COMAFIAMEX_12 .payment_method_label {
+  background-image: url("../images/AMEX_COMAFIAMEX_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COMAFIAMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COMAFIAMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COMAFIAMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_COMAFIAMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_COMAFIAMEX_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_COMAFIAMEX_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_COMAFIAMEX_6 .payment_method_label {
+  background-image: url("../images/AMEX_COMAFIAMEX_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_GALICIAAMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_GALICIAAMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_GALICIAAMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_GALICIAAMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_GALICIAAMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_GALICIAAMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_GALICIAAMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_GALICIAAMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_GALICIAAMEX_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_GALICIAAMEX_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_GALICIAAMEX_6 .payment_method_label {
+  background-image: url("../images/AMEX_GALICIAAMEX_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_MACROAMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_MACROAMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_MACROAMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_MACROAMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_MACROAMEX_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_MACROAMEX_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_MACROAMEX_12 .payment_method_label {
+  background-image: url("../images/AMEX_MACROAMEX_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_MACROAMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_MACROAMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_MACROAMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_MACROAMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_MACROAMEX_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_MACROAMEX_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_MACROAMEX_6 .payment_method_label {
+  background-image: url("../images/AMEX_MACROAMEX_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_PROMOAMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_PROMOAMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_PROMOAMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_PROMOAMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_PROMOAMEX_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_PROMOAMEX_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_PROMOAMEX_12 .payment_method_label {
+  background-image: url("../images/AMEX_PROMOAMEX_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_PROMOAMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_PROMOAMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_PROMOAMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_PROMOAMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_PROMOAMEX_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_PROMOAMEX_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_PROMOAMEX_6 .payment_method_label {
+  background-image: url("../images/AMEX_PROMOAMEX_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_PROMOAMEX_X .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_PROMOAMEX_X .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_PROMOAMEX_X .payment_method_label {
+  background-image: url("../images/AMEX_PROMOAMEX_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_SANTANDERSELAMEX_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_SANTANDERSELAMEX_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_SANTANDERSELAMEX_1 .payment_method_label {
+  background-image: url("../images/AMEX_SANTANDERSELAMEX_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX_SANTANDERSELAMEX_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX_SANTANDERSELAMEX_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX_SANTANDERSELAMEX_3 .payment_method_label {
+  background-image: url("../images/AMEX_SANTANDERSELAMEX_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX__1 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX__1 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX__1 .payment_method_label {
+  background-image: url("../images/AMEX__1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX__3 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX__3 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX__3 .payment_method_label {
+  background-image: url("../images/AMEX__3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX__6 .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX__6 .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX__6 .payment_method_label {
+  background-image: url("../images/AMEX__6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_AMEX__X .payment_method_label,
+#edit_payment_method_popup .payment_method_AMEX__X .payment_method_label,
+#remove_payment_method_popup .payment_method_AMEX__X .payment_method_label {
+  background-image: url("../images/AMEX__X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_CABAL_CIUDADCAB_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_CABAL_CIUDADCAB_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_CABAL_CIUDADCAB_12 .payment_method_label {
+  background-image: url("../images/CABAL_CIUDADCAB_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_CABAL_CIUDADCAB_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_CABAL_CIUDADCAB_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_CABAL_CIUDADCAB_3 .payment_method_label {
+  background-image: url("../images/CABAL_CIUDADCAB_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_CABAL_CIUDADCAB_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_CABAL_CIUDADCAB_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_CABAL_CIUDADCAB_6 .payment_method_label {
+  background-image: url("../images/CABAL_CIUDADCAB_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_CABAL__1 .payment_method_label,
+#edit_payment_method_popup .payment_method_CABAL__1 .payment_method_label,
+#remove_payment_method_popup .payment_method_CABAL__1 .payment_method_label {
+  background-image: url("../images/CABAL__1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_COMAFIDINERS_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_COMAFIDINERS_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_COMAFIDINERS_1 .payment_method_label {
+  background-image: url("../images/DINERS_COMAFIDINERS_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_COMAFIDINERS_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_COMAFIDINERS_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_COMAFIDINERS_12 .payment_method_label {
+  background-image: url("../images/DINERS_COMAFIDINERS_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_COMAFIDINERS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_COMAFIDINERS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_COMAFIDINERS_3 .payment_method_label {
+  background-image: url("../images/DINERS_COMAFIDINERS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_COMAFIDINERS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_COMAFIDINERS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_COMAFIDINERS_6 .payment_method_label {
+  background-image: url("../images/DINERS_COMAFIDINERS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_DAVIVDINERS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_DAVIVDINERS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_DAVIVDINERS_X .payment_method_label {
+  background-image: url("../images/DINERS_DAVIVDINERS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_PROMODINERS_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_PROMODINERS_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_PROMODINERS_1 .payment_method_label {
+  background-image: url("../images/DINERS_PROMODINERS_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_PROMODINERS_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_PROMODINERS_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_PROMODINERS_12 .payment_method_label {
+  background-image: url("../images/DINERS_PROMODINERS_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_PROMODINERS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_PROMODINERS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_PROMODINERS_3 .payment_method_label {
+  background-image: url("../images/DINERS_PROMODINERS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_PROMODINERS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_PROMODINERS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_PROMODINERS_6 .payment_method_label {
+  background-image: url("../images/DINERS_PROMODINERS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS_PROMODINERS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS_PROMODINERS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS_PROMODINERS_X .payment_method_label {
+  background-image: url("../images/DINERS_PROMODINERS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_DINERS__X .payment_method_label,
+#edit_payment_method_popup .payment_method_DINERS__X .payment_method_label,
+#remove_payment_method_popup .payment_method_DINERS__X .payment_method_label {
+  background-image: url("../images/DINERS__X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BANCOLOMBIAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BANCOLOMBIAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BANCOLOMBIAMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_BANCOLOMBIAMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBOGOTAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBOGOTAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBOGOTAMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBOGOTAMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBVAMASTER_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_1 .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBVAMASTER_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_12 .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBVAMASTER_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBVAMASTER_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBVAMASTER_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_BBVAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_BBVAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_BBVAMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_BBVAMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_CIUDADMAS_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_12 .payment_method_label {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_CIUDADMAS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_CIUDADMAS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_CIUDADMAS_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_COLPATMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_COLPATMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_COLPATMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_COLPATMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_COLPATRIA .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_COLPATRIA .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_COLPATRIA .payment_method_label {
+  background-image: url("../images/MASTERCARD_COLPATRIA.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_COMAFIMASTER_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_1 .payment_method_label {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_COMAFIMASTER_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_COMAFIMASTER_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_COMAFIMASTER_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_DAVIVMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_DAVIVMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_DAVIVMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_DAVIVMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_FALAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_FALAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_FALAMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_FALAMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_GALICIAMAS_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_1 .payment_method_label {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_GALICIAMAS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_GALICIAMAS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_GALICIAMAS_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_ITAUMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_ITAUMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_ITAUMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_ITAUMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MACROMASTER_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_1 .payment_method_label {
+  background-image: url("../images/MASTERCARD_MACROMASTER_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MACROMASTER_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_12 .payment_method_label {
+  background-image: url("../images/MASTERCARD_MACROMASTER_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MACROMASTER_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_MACROMASTER_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MACROMASTER_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MACROMASTER_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_MACROMASTER_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MASTERAVAL .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MASTERAVAL .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MASTERAVAL .payment_method_label {
+  background-image: url("../images/MASTERCARD_MASTERAVAL.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_MASTERAVAL_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_MASTERAVAL_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_MASTERAVAL_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_MASTERAVAL_X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_OCCIDENTEMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_OCCIDENTEMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_OCCIDENTEMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_OCCIDENTEMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_OMEVAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_OMEVAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_OMEVAMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_OMEVAMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_POPULARMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_POPULARMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_POPULARMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_POPULARMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_PROMOMASTER_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_1 .payment_method_label {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_PROMOMASTER_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_12 .payment_method_label {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_PROMOMASTER_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_3 .payment_method_label {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_PROMOMASTER_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_6 .payment_method_label {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_PROMOMASTER_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_PROMOMASTER_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_SOCIALMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_SOCIALMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_SOCIALMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_SOCIALMAS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD_VILLASMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD_VILLASMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD_VILLASMAS_X .payment_method_label {
+  background-image: url("../images/MASTERCARD_VILLASMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD__1 .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD__1 .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD__1 .payment_method_label {
+  background-image: url("../images/MASTERCARD__1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTERCARD__X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTERCARD__X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTERCARD__X .payment_method_label {
+  background-image: url("../images/MASTERCARD__X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTER_BANCOLOMBIAMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTER_BANCOLOMBIAMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTER_BANCOLOMBIAMAS_X .payment_method_label {
+  background-image: url("../images/MASTER_BANCOLOMBIAMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_MASTER_OCCIDENTEMAS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_MASTER_OCCIDENTEMAS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_MASTER_OCCIDENTEMAS_X .payment_method_label {
+  background-image: url("../images/MASTER_OCCIDENTEMAS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BANCOLOMBIAVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BANCOLOMBIAVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BANCOLOMBIAVIS_X .payment_method_label {
+  background-image: url("../images/VISA_BANCOLOMBIAVIS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBOGOTAVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBOGOTAVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBOGOTAVIS_X .payment_method_label {
+  background-image: url("../images/VISA_BBOGOTAVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBVAVISA_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBVAVISA_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBVAVISA_1 .payment_method_label {
+  background-image: url("../images/VISA_BBVAVISA_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBVAVISA_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBVAVISA_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBVAVISA_12 .payment_method_label {
+  background-image: url("../images/VISA_BBVAVISA_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBVAVISA_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBVAVISA_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBVAVISA_3 .payment_method_label {
+  background-image: url("../images/VISA_BBVAVISA_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBVAVISA_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBVAVISA_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBVAVISA_6 .payment_method_label {
+  background-image: url("../images/VISA_BBVAVISA_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_BBVAVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_BBVAVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_BBVAVIS_X .payment_method_label {
+  background-image: url("../images/VISA_BBVAVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_CIUDADVIS_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_CIUDADVIS_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_CIUDADVIS_12 .payment_method_label {
+  background-image: url("../images/VISA_CIUDADVIS_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_CIUDADVIS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_CIUDADVIS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_CIUDADVIS_3 .payment_method_label {
+  background-image: url("../images/VISA_CIUDADVIS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_CIUDADVIS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_CIUDADVIS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_CIUDADVIS_6 .payment_method_label {
+  background-image: url("../images/VISA_CIUDADVIS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COLPATRIA .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COLPATRIA .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COLPATRIA .payment_method_label {
+  background-image: url("../images/VISA_COLPATRIA.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COLPATVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COLPATVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COLPATVIS_X .payment_method_label {
+  background-image: url("../images/VISA_COLPATVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COMAFIVISA_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COMAFIVISA_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COMAFIVISA_1 .payment_method_label {
+  background-image: url("../images/VISA_COMAFIVISA_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COMAFIVISA_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COMAFIVISA_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COMAFIVISA_12 .payment_method_label {
+  background-image: url("../images/VISA_COMAFIVISA_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COMAFIVISA_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COMAFIVISA_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COMAFIVISA_3 .payment_method_label {
+  background-image: url("../images/VISA_COMAFIVISA_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_COMAFIVISA_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_COMAFIVISA_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_COMAFIVISA_6 .payment_method_label {
+  background-image: url("../images/VISA_COMAFIVISA_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_DAVIVVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_DAVIVVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_DAVIVVIS_X .payment_method_label {
+  background-image: url("../images/VISA_DAVIVVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_FALAVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_FALAVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_FALAVIS_X .payment_method_label {
+  background-image: url("../images/VISA_FALAVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_FIFA .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_FIFA .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_FIFA .payment_method_label {
+  background-image: url("../images/VISA_FIFA.png");
+  background-size: 20px 11.88889px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_GALICIAVIS_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_GALICIAVIS_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_GALICIAVIS_1 .payment_method_label {
+  background-image: url("../images/VISA_GALICIAVIS_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_GALICIAVIS_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_GALICIAVIS_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_GALICIAVIS_3 .payment_method_label {
+  background-image: url("../images/VISA_GALICIAVIS_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_GALICIAVIS_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_GALICIAVIS_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_GALICIAVIS_6 .payment_method_label {
+  background-image: url("../images/VISA_GALICIAVIS_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_ITAUVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_ITAUVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_ITAUVIS_X .payment_method_label {
+  background-image: url("../images/VISA_ITAUVIS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_MACROVISA_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_MACROVISA_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_MACROVISA_1 .payment_method_label {
+  background-image: url("../images/VISA_MACROVISA_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_MACROVISA_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_MACROVISA_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_MACROVISA_12 .payment_method_label {
+  background-image: url("../images/VISA_MACROVISA_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_MACROVISA_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_MACROVISA_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_MACROVISA_3 .payment_method_label {
+  background-image: url("../images/VISA_MACROVISA_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_MACROVISA_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_MACROVISA_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_MACROVISA_6 .payment_method_label {
+  background-image: url("../images/VISA_MACROVISA_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_OCCIDENTEVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_OCCIDENTEVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_OCCIDENTEVIS_X .payment_method_label {
+  background-image: url("../images/VISA_OCCIDENTEVIS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_OMEVAVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_OMEVAVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_OMEVAVIS_X .payment_method_label {
+  background-image: url("../images/VISA_OMEVAVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_POPULARVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_POPULARVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_POPULARVIS_X .payment_method_label {
+  background-image: url("../images/VISA_POPULARVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_PROMOVISA_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_PROMOVISA_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_PROMOVISA_1 .payment_method_label {
+  background-image: url("../images/VISA_PROMOVISA_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_PROMOVISA_12 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_PROMOVISA_12 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_PROMOVISA_12 .payment_method_label {
+  background-image: url("../images/VISA_PROMOVISA_12.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_PROMOVISA_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_PROMOVISA_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_PROMOVISA_3 .payment_method_label {
+  background-image: url("../images/VISA_PROMOVISA_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_PROMOVISA_6 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_PROMOVISA_6 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_PROMOVISA_6 .payment_method_label {
+  background-image: url("../images/VISA_PROMOVISA_6.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_PROMOVISA_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_PROMOVISA_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_PROMOVISA_X .payment_method_label {
+  background-image: url("../images/VISA_PROMOVISA_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_SANTANDERSELVISA_1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_SANTANDERSELVISA_1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_SANTANDERSELVISA_1 .payment_method_label {
+  background-image: url("../images/VISA_SANTANDERSELVISA_1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_SANTANDERSELVISA_3 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_SANTANDERSELVISA_3 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_SANTANDERSELVISA_3 .payment_method_label {
+  background-image: url("../images/VISA_SANTANDERSELVISA_3.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_SOCIALVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_SOCIALVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_SOCIALVIS_X .payment_method_label {
+  background-image: url("../images/VISA_SOCIALVIS_X.png");
+  background-size: 20px 12.54658px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_VILLASVIS_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_VILLASVIS_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_VILLASVIS_X .payment_method_label {
+  background-image: url("../images/VISA_VILLASVIS_X.png");
+  background-size: 20px 12.42236px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_VISAAVAL .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_VISAAVAL .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_VISAAVAL .payment_method_label {
+  background-image: url("../images/VISA_VISAAVAL.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA_VISAAVAL_X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA_VISAAVAL_X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA_VISAAVAL_X .payment_method_label {
+  background-image: url("../images/VISA_VISAAVAL_X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA__1 .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA__1 .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA__1 .payment_method_label {
+  background-image: url("../images/VISA__1.png");
+  background-size: 20px 12.7px;
+  background-position: left center;
+}
+#main_content_edit_personal_details .payment_method_VISA__X .payment_method_label,
+#edit_payment_method_popup .payment_method_VISA__X .payment_method_label,
+#remove_payment_method_popup .payment_method_VISA__X .payment_method_label {
+  background-image: url("../images/VISA__X.png");
+  background-size: 20px 12.5px;
+  background-position: left center;
+}
+
+#payment_saved_cards .card.card_AMEX {
+  background-image: url("../images/AMEX.png");
+  background-size: 30px 6550.50005px;
+  background-position: 165px -6435.50005px;
+}
+#payment_saved_cards .card.card_AMEXAVAL {
+  background-image: url("../images/AMEXAVAL.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_AMEX_AMEXAVAL {
+  background-image: url("../images/AMEX_AMEXAVAL.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_AMEX_AMEXAVAL_X {
+  background-image: url("../images/AMEX_AMEXAVAL_X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_AMEX_AMEX_1 {
+  background-image: url("../images/AMEX_AMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_AMEX_3 {
+  background-image: url("../images/AMEX_AMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_AMEX_6 {
+  background-image: url("../images/AMEX_AMEX_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_BANCOLOMBIAAMEX_X {
+  background-image: url("../images/AMEX_BANCOLOMBIAAMEX_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_AMEX_COLPATAMEX_X {
+  background-image: url("../images/AMEX_COLPATAMEX_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_AMEX_COLPATRIA {
+  background-image: url("../images/AMEX_COLPATRIA.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_AMEX_COMAFIAMEX_1 {
+  background-image: url("../images/AMEX_COMAFIAMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_COMAFIAMEX_12 {
+  background-image: url("../images/AMEX_COMAFIAMEX_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_COMAFIAMEX_3 {
+  background-image: url("../images/AMEX_COMAFIAMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_COMAFIAMEX_6 {
+  background-image: url("../images/AMEX_COMAFIAMEX_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_GALICIAAMEX_1 {
+  background-image: url("../images/AMEX_GALICIAAMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_GALICIAAMEX_3 {
+  background-image: url("../images/AMEX_GALICIAAMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_GALICIAAMEX_6 {
+  background-image: url("../images/AMEX_GALICIAAMEX_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_MACROAMEX_1 {
+  background-image: url("../images/AMEX_MACROAMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_MACROAMEX_12 {
+  background-image: url("../images/AMEX_MACROAMEX_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_MACROAMEX_3 {
+  background-image: url("../images/AMEX_MACROAMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_MACROAMEX_6 {
+  background-image: url("../images/AMEX_MACROAMEX_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_PROMOAMEX_1 {
+  background-image: url("../images/AMEX_PROMOAMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_PROMOAMEX_12 {
+  background-image: url("../images/AMEX_PROMOAMEX_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_PROMOAMEX_3 {
+  background-image: url("../images/AMEX_PROMOAMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_PROMOAMEX_6 {
+  background-image: url("../images/AMEX_PROMOAMEX_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_PROMOAMEX_X {
+  background-image: url("../images/AMEX_PROMOAMEX_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_AMEX_SANTANDERSELAMEX_1 {
+  background-image: url("../images/AMEX_SANTANDERSELAMEX_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX_SANTANDERSELAMEX_3 {
+  background-image: url("../images/AMEX_SANTANDERSELAMEX_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX__1 {
+  background-image: url("../images/AMEX__1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX__3 {
+  background-image: url("../images/AMEX__3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX__6 {
+  background-image: url("../images/AMEX__6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_AMEX__X {
+  background-image: url("../images/AMEX__X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+
+#payment_saved_cards .card.card_CABAL_CIUDADCAB_12 {
+  background-image: url("../images/CABAL_CIUDADCAB_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_CABAL_CIUDADCAB_3 {
+  background-image: url("../images/CABAL_CIUDADCAB_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_CABAL_CIUDADCAB_6 {
+  background-image: url("../images/CABAL_CIUDADCAB_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_CABAL__1 {
+  background-image: url("../images/CABAL__1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_COMAFIDINERS_1 {
+  background-image: url("../images/DINERS_COMAFIDINERS_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_COMAFIDINERS_12 {
+  background-image: url("../images/DINERS_COMAFIDINERS_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_COMAFIDINERS_3 {
+  background-image: url("../images/DINERS_COMAFIDINERS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_COMAFIDINERS_6 {
+  background-image: url("../images/DINERS_COMAFIDINERS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_DAVIVDINERS_X {
+  background-image: url("../images/DINERS_DAVIVDINERS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_DINERS_PROMODINERS_1 {
+  background-image: url("../images/DINERS_PROMODINERS_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_PROMODINERS_12 {
+  background-image: url("../images/DINERS_PROMODINERS_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_PROMODINERS_3 {
+  background-image: url("../images/DINERS_PROMODINERS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_PROMODINERS_6 {
+  background-image: url("../images/DINERS_PROMODINERS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_DINERS_PROMODINERS_X {
+  background-image: url("../images/DINERS_PROMODINERS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_DINERS__X {
+  background-image: url("../images/DINERS__X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BANCOLOMBIAMAS_X {
+  background-image: url("../images/MASTERCARD_BANCOLOMBIAMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBOGOTAMAS_X {
+  background-image: url("../images/MASTERCARD_BBOGOTAMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBVAMASTER_1 {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBVAMASTER_12 {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBVAMASTER_3 {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBVAMASTER_6 {
+  background-image: url("../images/MASTERCARD_BBVAMASTER_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_BBVAMAS_X {
+  background-image: url("../images/MASTERCARD_BBVAMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_CIUDADMAS_12 {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_CIUDADMAS_3 {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_CIUDADMAS_6 {
+  background-image: url("../images/MASTERCARD_CIUDADMAS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_COLPATMAS_X {
+  background-image: url("../images/MASTERCARD_COLPATMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_COLPATRIA {
+  background-image: url("../images/MASTERCARD_COLPATRIA.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_COMAFIMASTER_1 {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_COMAFIMASTER_3 {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_COMAFIMASTER_6 {
+  background-image: url("../images/MASTERCARD_COMAFIMASTER_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_DAVIVMAS_X {
+  background-image: url("../images/MASTERCARD_DAVIVMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_FALAMAS_X {
+  background-image: url("../images/MASTERCARD_FALAMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_GALICIAMAS_1 {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_GALICIAMAS_3 {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_GALICIAMAS_6 {
+  background-image: url("../images/MASTERCARD_GALICIAMAS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_ITAUMAS_X {
+  background-image: url("../images/MASTERCARD_ITAUMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MACROMASTER_1 {
+  background-image: url("../images/MASTERCARD_MACROMASTER_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MACROMASTER_12 {
+  background-image: url("../images/MASTERCARD_MACROMASTER_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MACROMASTER_3 {
+  background-image: url("../images/MASTERCARD_MACROMASTER_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MACROMASTER_6 {
+  background-image: url("../images/MASTERCARD_MACROMASTER_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MASTERAVAL {
+  background-image: url("../images/MASTERCARD_MASTERAVAL.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_MASTERCARD_MASTERAVAL_X {
+  background-image: url("../images/MASTERCARD_MASTERAVAL_X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_MASTERCARD_OCCIDENTEMAS_X {
+  background-image: url("../images/MASTERCARD_OCCIDENTEMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_MASTERCARD_OMEVAMAS_X {
+  background-image: url("../images/MASTERCARD_OMEVAMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_POPULARMAS_X {
+  background-image: url("../images/MASTERCARD_POPULARMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_PROMOMASTER_1 {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_PROMOMASTER_12 {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_PROMOMASTER_3 {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_PROMOMASTER_6 {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD_PROMOMASTER_X {
+  background-image: url("../images/MASTERCARD_PROMOMASTER_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_SOCIALMAS_X {
+  background-image: url("../images/MASTERCARD_SOCIALMAS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_MASTERCARD_VILLASMAS_X {
+  background-image: url("../images/MASTERCARD_VILLASMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_MASTERCARD__1 {
+  background-image: url("../images/MASTERCARD__1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_MASTERCARD__X {
+  background-image: url("../images/MASTERCARD__X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_MASTER_BANCOLOMBIAMAS_X {
+  background-image: url("../images/MASTER_BANCOLOMBIAMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_MASTER_OCCIDENTEMAS_X {
+  background-image: url("../images/MASTER_OCCIDENTEMAS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_VISA_BANCOLOMBIAVIS_X {
+  background-image: url("../images/VISA_BANCOLOMBIAVIS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_VISA_BBOGOTAVIS_X {
+  background-image: url("../images/VISA_BBOGOTAVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_BBVAVISA_1 {
+  background-image: url("../images/VISA_BBVAVISA_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_BBVAVISA_12 {
+  background-image: url("../images/VISA_BBVAVISA_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_BBVAVISA_3 {
+  background-image: url("../images/VISA_BBVAVISA_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_BBVAVISA_6 {
+  background-image: url("../images/VISA_BBVAVISA_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_BBVAVIS_X {
+  background-image: url("../images/VISA_BBVAVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_CIUDADVIS_12 {
+  background-image: url("../images/VISA_CIUDADVIS_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_CIUDADVIS_3 {
+  background-image: url("../images/VISA_CIUDADVIS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_CIUDADVIS_6 {
+  background-image: url("../images/VISA_CIUDADVIS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_COLPATRIA {
+  background-image: url("../images/VISA_COLPATRIA.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_COLPATVIS_X {
+  background-image: url("../images/VISA_COLPATVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_COMAFIVISA_1 {
+  background-image: url("../images/VISA_COMAFIVISA_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_COMAFIVISA_12 {
+  background-image: url("../images/VISA_COMAFIVISA_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_COMAFIVISA_3 {
+  background-image: url("../images/VISA_COMAFIVISA_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_COMAFIVISA_6 {
+  background-image: url("../images/VISA_COMAFIVISA_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_DAVIVVIS_X {
+  background-image: url("../images/VISA_DAVIVVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_FALAVIS_X {
+  background-image: url("../images/VISA_FALAVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_FIFA {
+  background-image: url("../images/VISA_FIFA.png");
+  background-size: 30px 17.83333px;
+  background-position: 165px 97.16667px;
+}
+#payment_saved_cards .card.card_VISA_GALICIAVIS_1 {
+  background-image: url("../images/VISA_GALICIAVIS_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_GALICIAVIS_3 {
+  background-image: url("../images/VISA_GALICIAVIS_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_GALICIAVIS_6 {
+  background-image: url("../images/VISA_GALICIAVIS_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_ITAUVIS_X {
+  background-image: url("../images/VISA_ITAUVIS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_VISA_MACROVISA_1 {
+  background-image: url("../images/VISA_MACROVISA_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_MACROVISA_12 {
+  background-image: url("../images/VISA_MACROVISA_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_MACROVISA_3 {
+  background-image: url("../images/VISA_MACROVISA_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_MACROVISA_6 {
+  background-image: url("../images/VISA_MACROVISA_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_OCCIDENTEVIS_X {
+  background-image: url("../images/VISA_OCCIDENTEVIS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_VISA_OMEVAVIS_X {
+  background-image: url("../images/VISA_OMEVAVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_POPULARVIS_X {
+  background-image: url("../images/VISA_POPULARVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_PROMOVISA_1 {
+  background-image: url("../images/VISA_PROMOVISA_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_PROMOVISA_12 {
+  background-image: url("../images/VISA_PROMOVISA_12.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_PROMOVISA_3 {
+  background-image: url("../images/VISA_PROMOVISA_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_PROMOVISA_6 {
+  background-image: url("../images/VISA_PROMOVISA_6.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_PROMOVISA_X {
+  background-image: url("../images/VISA_PROMOVISA_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_SANTANDERSELVISA_1 {
+  background-image: url("../images/VISA_SANTANDERSELVISA_1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_SANTANDERSELVISA_3 {
+  background-image: url("../images/VISA_SANTANDERSELVISA_3.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA_SOCIALVIS_X {
+  background-image: url("../images/VISA_SOCIALVIS_X.png");
+  background-size: 30px 18.81988px;
+  background-position: 165px 96.18012px;
+}
+#payment_saved_cards .card.card_VISA_VILLASVIS_X {
+  background-image: url("../images/VISA_VILLASVIS_X.png");
+  background-size: 30px 18.63354px;
+  background-position: 165px 96.36646px;
+}
+#payment_saved_cards .card.card_VISA_VISAAVAL {
+  background-image: url("../images/VISA_VISAAVAL.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_VISA_VISAAVAL_X {
+  background-image: url("../images/VISA_VISAAVAL_X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+#payment_saved_cards .card.card_VISA__1 {
+  background-image: url("../images/VISA__1.png");
+  background-size: 30px 19.05px;
+  background-position: 165px 95.95px;
+}
+#payment_saved_cards .card.card_VISA__X {
+  background-image: url("../images/VISA__X.png");
+  background-size: 30px 18.75px;
+  background-position: 165px 96.25px;
+}
+
+/* 00325167 */
+.currency.currency_code{
+	display: none !important;
+}
+.int_part:before{
+	content: '$';
+	display: inline-block;
+}
+/* 00325167 END */
+
+/* 00337782 */
+@media screen and (max-width: 990px){
+  .mobile #secondary_content_navigation[_ts15_views_account_menubox] a,
+  .mobile #secondary_content_navigation[_ts15_views_account_menubox] .email{
+    color: #fff !important
+  }
+}
+/* 00337782 END */

